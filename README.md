@@ -2,6 +2,7 @@
 
 Klinge is an FPGA computer designed by Lone Dynamics Corporation.
 
+![Klinge](https://github.com/machdyne/klinge/blob/a071a7454161100a51e95bc0b22c07b44112e636/klinge.png)
 
 This repo contains schematics, pinouts, a 3D-printable case, example gateware and documentation.
 
