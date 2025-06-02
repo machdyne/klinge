@@ -136,6 +136,13 @@
                 status = "okay";
             };
 
+            usb0: mac@c0000000 {
+                compatible = "generic-ohci";
+                reg = <0xc0000000 0x1000>;
+                interrupts = <16>;
+                status = "okay";
+            };
+
             litespisdcard0: spi@f0005000 {
                 compatible = "litex,litespi";
                 reg = <0xf0005000 0x100>;
@@ -154,7 +161,28 @@
                     voltage-ranges = <3300 3300>;
                     spi-max-frequency = <1500000>;
                     status = "okay";
-                    };
+                };
+            };
+
+            litespisdcard1: spi@f0005800 {
+                compatible = "litex,litespi";
+                reg = <0xf0005800 0x100>;
+                status = "okay";
+
+                litespi,max-bpw = <8>;
+                litespi,sck-frequency = <1500000>;
+                litespi,num-cs = <1>;
+
+                #address-cells = <1>;
+                #size-cells    = <0>;
+
+                mmc-slot@0 {
+                    compatible = "mmc-spi-slot";
+                    reg = <0>;
+                    voltage-ranges = <3300 3300>;
+                    spi-max-frequency = <1500000>;
+                    status = "okay";
+                };
             };
 
         };
@@ -164,6 +192,8 @@
                 serial0 = &liteuart0;
 
                 sdcard0 = &litespisdcard0;
+
+                sdcard1 = &litespisdcard1;
 
         };
 
